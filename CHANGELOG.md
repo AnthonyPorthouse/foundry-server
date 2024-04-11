@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/AnthonyPorthouse/foundry-server/compare/v1.1.2...v1.1.3) (2024-04-11)
+
+
+### Bug Fixes
+
+* lock to lts node ([a584733](https://github.com/AnthonyPorthouse/foundry-server/commit/a58473309263cfe32e28f903fb82d0b3514d4f6c))
+
 ## [1.1.2](https://github.com/AnthonyPorthouse/foundry-server/compare/v1.1.1...v1.1.2) (2024-04-11)
 
 
