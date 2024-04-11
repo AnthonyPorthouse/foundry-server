@@ -3,6 +3,18 @@
 FOUNDRY_ZIP_DIR=${FOUNDRY_ZIP_DIR:-/storage}
 FOUNDRY_FILE=${FOUNDRY_FILE:-foundry.zip}
 FOUNDRY_DIR=${FOUNDRY_DIR:-/app}
+DATA_DIR=${FOUNDRY_DIR:-/data}
+
+PUID=${PUID:-1000}
+PGID=${PGID:-1000}
+USER=${USER:-"node"}
+
+set-up-user.sh "$USER" "$PUID" "$PGID"
+
+set_permissions() {
+    chown -R "${USER}":"${USER}" "${FOUNDRY_DIR}"
+    chown -R "${USER}":"${USER}" "${DATA_DIR}"
+}
 
 main() {
 
@@ -45,4 +57,8 @@ main() {
 
 main
 
-exec "$@"
+set_permissions
+
+COMMAND="${*:-"node ${FOUNDRY_DIR}/main.js --dataPath=${DATA_DIR}"}"
+
+su -l "${USER}" -c "$COMMAND"
