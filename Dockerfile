@@ -1,4 +1,4 @@
-FROM node:current-alpine
+FROM node:lts-alpine
 EXPOSE 30000
 # EXPOSE 30000/udp
 
