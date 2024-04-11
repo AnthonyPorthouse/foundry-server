@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/AnthonyPorthouse/foundry-server/compare/v1.1.1...v1.1.2) (2024-04-11)
+
+
+### Bug Fixes
+
+* revert to just exposing 30000 ([c2260b8](https://github.com/AnthonyPorthouse/foundry-server/commit/c2260b8bea5926072706cbd42bb81f2861c555f8))
+
 ## [1.1.1](https://github.com/AnthonyPorthouse/foundry-server/compare/v1.0.1...v1.1.1) (2024-04-11)
 
 
