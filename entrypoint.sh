@@ -61,4 +61,7 @@ set_permissions
 
 COMMAND="${*:-"node ${FOUNDRY_DIR}/main.js --dataPath=${DATA_DIR}"}"
 
-su -l "${USER}" -c "$COMMAND"
+cat /etc/passwd
+ls /home
+
+su "${USER}" -c "$COMMAND"

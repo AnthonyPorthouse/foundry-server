@@ -1,5 +1,6 @@
 FROM node:current-alpine
-EXPOSE 30000
+EXPOSE 30000/tcp
+EXPOSE 30000/udp
 
 RUN apk add --no-cache jq
 

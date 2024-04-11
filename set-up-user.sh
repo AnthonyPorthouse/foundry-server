@@ -10,8 +10,11 @@ PUID=$2
 # Target Group ID
 PGID=$3
 
-if [ ! "$(id -u "${USER}")" -eq "$PUID" ]; then usermod -o -u "$PUID" "${USER}" ; fi
-if [ ! "$(id -g "${USER}")" -eq "$PGID" ]; then groupmod -o -g "$PGID" "${USER}" ; fi
+if [ ! "$(id -u "${USER}")" -eq "$PUID" ] || [ ! "$(id -g "${USER}")" -eq "$PGID" ]; then
+    deluser --remove-home "${USER}"
+    addgroup -S "${USER}" -g "${PGID}"
+    adduser -S -s /bin/ash -G "${USER}" -u "${PUID}" "${USER}"
+fi
 
 echo "
 -----------------------------------
