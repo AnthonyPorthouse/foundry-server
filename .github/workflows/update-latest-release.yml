@@ -2,6 +2,8 @@ name: Update Latest Release
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 12 * * 1'
 
 permissions:
   packages: write
