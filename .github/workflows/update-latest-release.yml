@@ -1,0 +1,55 @@
+name: Update Latest Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: "Get Most Recent Tag"
+        id: lastTag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.lastTag.outputs.tag }}
+
+      - name: Setup QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Setup Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: |
+            ghcr.io/anthonyporthouse/docker-foundry
+          tags: |
+            type=semver,pattern={{version}},value=${{ steps.lastTag.outputs.tag }}
+            type=semver,pattern={{major}}.{{minor}},value=${{ steps.lastTag.outputs.tag }}
+            type=semver,pattern={{major}},value=${{ steps.lastTag.outputs.tag }}
+
+      - name: Build
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          platforms: |
+            linux/amd64
+            linux/arm64
