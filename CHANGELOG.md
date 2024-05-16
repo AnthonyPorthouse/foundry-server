@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/AnthonyPorthouse/foundry-server/compare/v1.1.3...v1.1.4) (2024-05-16)
+
+
+### Bug Fixes
+
+* stop creation of empty volume ([0015cfe](https://github.com/AnthonyPorthouse/foundry-server/commit/0015cfe2a42ffdcaf74974092927b7ac5c1e0944))
+
 ## [1.1.3](https://github.com/AnthonyPorthouse/foundry-server/compare/v1.1.2...v1.1.3) (2024-04-11)
 
 
