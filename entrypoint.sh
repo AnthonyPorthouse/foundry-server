@@ -1,9 +1,9 @@
 #! /usr/bin/env sh
 
-FOUNDRY_ZIP_DIR=${FOUNDRY_ZIP_DIR:-/storage}
+FOUNDRY_ZIP_DIR="/storage"
 FOUNDRY_FILE=${FOUNDRY_FILE:-foundry.zip}
-FOUNDRY_DIR=${FOUNDRY_DIR:-/app}
-DATA_DIR=${DATA_DIR:-/data}
+FOUNDRY_DIR="/app"
+DATA_DIR="/data"
 
 PUID=${PUID:-1000}
 PGID=${PGID:-1000}
@@ -36,7 +36,7 @@ main() {
 
         current_version=$(jq -c .version < "$FOUNDRY_DIR/package.json")
         new_version=$(unzip -qq -p "$foundryzip" resources/app/package.json | jq -c .version)
-        
+
         if [ "$current_version" = "$new_version" ]; then
             echo "Version already matches, not updating"
             return
