@@ -53,7 +53,7 @@ jobs:
             type=semver,pattern={{major}},value=${{ steps.release.outputs.tag_name }}
 
       - name: Build
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         if: ${{ steps.release.outputs.release_created }}
         with:
           context: .
