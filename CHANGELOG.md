@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/AnthonyPorthouse/foundry-server/compare/v1.1.4...v1.2.0) (2024-11-05)
+
+
+### Features
+
+* add healthchecks ([b62286f](https://github.com/AnthonyPorthouse/foundry-server/commit/b62286f8da09cc2fa059e72c251645d779508332))
+
 ## [1.1.4](https://github.com/AnthonyPorthouse/foundry-server/compare/v1.1.3...v1.1.4) (2024-05-16)
 
 
