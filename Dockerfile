@@ -1,8 +1,9 @@
 FROM node:lts-alpine
 EXPOSE 30000
-# EXPOSE 30000/udp
 
-RUN apk add --no-cache jq
+RUN apk add --no-cache jq curl
+
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "curl", "--fail", "http://localhost:30000" ]
 
 ENV FOUNDRY_FILE=foundry.zip
 
