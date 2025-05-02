@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/AnthonyPorthouse/foundry-server/compare/v1.2.0...v2.0.0) (2025-05-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* Foundry 13 Node Build Compatibility
+
+### Features
+
+* Foundry 13 Node Build Compatibility ([a9fd7f6](https://github.com/AnthonyPorthouse/foundry-server/commit/a9fd7f660a910e8e4ed316c27d212874431e9c53))
+
 ## [1.2.0](https://github.com/AnthonyPorthouse/foundry-server/compare/v1.1.4...v1.2.0) (2024-11-05)
 
 
