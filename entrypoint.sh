@@ -35,7 +35,7 @@ main() {
     if [ -f "$FOUNDRY_DIR/package.json" ]; then
 
         current_version=$(jq -c .version < "$FOUNDRY_DIR/package.json")
-        new_version=$(unzip -qq -p "$foundryzip" resources/app/package.json | jq -c .version)
+        new_version=$(unzip -qq -p "$foundryzip" package.json | jq -c .version)
 
         if [ "$current_version" = "$new_version" ]; then
             echo "Version already matches, not updating"
@@ -48,9 +48,9 @@ main() {
     tmpdir=$(mktemp -d)
 
     # Replace resources directory
-    unzip -qq "$foundryzip" resources/app/** -d "$tmpdir"
+    unzip -qq "$foundryzip" ** -d "$tmpdir"
 
-    cp -r "$tmpdir/resources/app"/* /app
+    cp -r "$tmpdir"/* /app
 
     rm -rf "$tmpdir"
 }
