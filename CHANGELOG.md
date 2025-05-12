@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/AnthonyPorthouse/foundry-server/compare/v2.0.0...v2.0.1) (2025-05-12)
+
+
+### Bug Fixes
+
+* correctly validate foundry zip file and extract to tmpdir ([38f3d1a](https://github.com/AnthonyPorthouse/foundry-server/commit/38f3d1a4146860daea8bb013649c6f7ca0b0c5bb))
+
 ## [2.0.0](https://github.com/AnthonyPorthouse/foundry-server/compare/v1.2.0...v2.0.0) (2025-05-02)
 
 
