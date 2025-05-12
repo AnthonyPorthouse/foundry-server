@@ -1,5 +1,7 @@
 #! /usr/bin/env sh
 
+# set -ex
+
 FOUNDRY_ZIP_DIR="/storage"
 FOUNDRY_FILE=${FOUNDRY_FILE:-foundry.zip}
 FOUNDRY_DIR="/app"
@@ -27,7 +29,7 @@ main() {
     fi
 
     # Check file contains Foundry
-    if ! unzip -qq -l "$foundryzip" foundryvtt > /dev/null 2>&1 ; then
+    if ! unzip -qqp "$foundryzip" package.json | jq -e '.name == "foundryvtt"' ; then
         echo "Not a valid Foundry VTT zip file" > /dev/stderr
         exit 1
     fi
@@ -48,7 +50,7 @@ main() {
     tmpdir=$(mktemp -d)
 
     # Replace resources directory
-    unzip -qq "$foundryzip" ** -d "$tmpdir"
+    unzip -qq "$foundryzip" '**' -d "$tmpdir"
 
     cp -r "$tmpdir"/* /app
 

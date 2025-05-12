@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM docker.io/node:lts-alpine
 EXPOSE 30000
 
 RUN apk add --no-cache jq curl
