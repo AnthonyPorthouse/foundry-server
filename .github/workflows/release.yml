@@ -57,6 +57,8 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
         with:
           context: .
+          sbom: true
+          provenance: true
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
