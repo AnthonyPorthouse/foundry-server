@@ -24,7 +24,7 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
 
       - name: Setup QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
         if: ${{ steps.release.outputs.release_created }}
 
 
